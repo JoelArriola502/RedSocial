@@ -1,0 +1,111 @@
+*{
+    margin: 0;/* espacion entre componetes*/
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background-color: black;
+    display: flex;/* */
+    align-items: center;/* coloca al centro hacia abajo  */
+    justify-content: center;/* ajusta al centro */
+    min-height: 100vh;/* hacia abajo 100vh*/
+    color: #040404;
+   
+}
+.login{
+    border-radius: 0.5em;/* bordes redondos del formulario*/
+    display: flex; /* */
+    flex-direction: column;/* que solo sea una columna */
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(25px);
+    padding: 20px 25px;/*20px de alto y 25 de ancho */
+    place-items: center;/* para centrar componetes del  formulario*/
+    
+}
+
+  h1{
+    color: rgb(0, 0, 0);
+    padding: 2vh;
+
+}
+
+Label{
+    margin-bottom: 30px;
+    background: transparent;
+}
+input{
+    border: none;/* quitar los bordes*/
+    color: black;
+    outline: none;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    padding: 0 5px;
+
+   
+}
+::placeholder{
+    color: rgb(13, 13, 13);
+   
+}
+
+button{
+    color: #fff;
+    
+    background-color: rgba(0, 0, 0, 0.281);
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+}
+button::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg,
+    red,blue,deeppink,blue,red,blue,deeppink,blue
+    
+    );
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+
+
+} 
+   @keyframes glowing {
+        0%{
+            background-position:0 0;
+        }
+        50%{
+            background-position: 400% 0;
+        }
+        100%{
+            background-position: 0 0;
+        }
+    }
+
+    a{
+    text-decoration: none;
+    color: #fff;
+    }
+
+    header{
+        background-color: #fff;
+        margin: 20px;
+        padding: 10px;
+        
+    }
+    .volver{
+        color: rgb(0, 0, 0);
+        border-radius: 30px;
+        background-color: aqua;
+        margin: 5px;
+        padding: 20px;
+    }
