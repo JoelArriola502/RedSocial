@@ -3,31 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style/login.css">
-    <title>Inicio Seción</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,700&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Iniciar Sesión</title>
 </head>
 <body>
-    <div class="container">
-        <div class="titulo">
-            
+    <div class="container-form Login Registrar">
+        <div class="informacion">
+            <div class="Bienvenido">
+                <h2>Bienvenido</h2>
+                <p>Registrate para conocer Noticias y usuarios de nuestra plataforma</p>
+                <input type="button" value="Iniciar Sesión" id="Sesion">
+            </div>
         </div>
-        <div class="Iniciar">
-           <form action="" class="login">
-            <h1>Facebook</h1>
-           <label for=""><i class="fa-solid fa-user"></i>
-            <input required="" class="input" type="email" name="email" id="email" placeholder="Correo">
-           </label>
-           <label for=""><i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Contraseña">
-           </label>
-           <button class="button">Iniciar Sesión</button>
-           <Button><a href="../views/Registrar.html">Crear Cuenta</a></Button>
+            <div class="formulario-informacion">
+                <div class="Registros">
+                    <h2>Crear Una Cuenta</h2>
+                    <div class="iconos">
+                        <i class='bx bxl-google'></i>
+                        <i class='bx bxl-github' ></i>
+                        <i class='bx bxl-linkedin-square' ></i>
+                    </div>
+                        <p>Utiliza tu Correo para registrarte</p>
+                      <form action="" class="Formulario">
+                        <label for="">
+                            <i class='bx bx-user' ></i>
+                            <input type="text" placeholder="Nombre">
+                        
+                        </label>
+                        <label for="">
+                            <i class='bx bx-user' ></i>
+                            <input type="text" placeholder="Apellido">
+                        </label>
 
-           </form>
-            
-        </div>
+                        <label for="">
+                            <i class='bx bx-envelope' ></i>
+                            <input  type="email" name="email" id="email" type="text" name="" id="" placeholder="Correo">
+                        </label>
+                        <label for="">
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="password" placeholder="Contraseña">
+                        </label>
+                        <input type="submit" value="Registrarte">
+                      </form>
+                    
+                </div>
+            </div>
+       
     </div>
     
+
+    <div class="container-form Iniciar">
+        <div class="informacion">
+            <div class="Bienvenido">
+                <h2>Bienvenido Inicia Sesión</h2>
+                <p>Inicia sesión Para compartir Noticias y Conocer usuarios de nuestra plataforma</p>
+                <input type="button" value="Crear Cuenta Nueva" id="Reg">
+            </div>
+        </div>
+            <div class="formulario-informacion">
+                <div class="Registros">
+                    <h2>INICIA SESIÓN</h2>
+                    <div class="iconos">
+                        <i class='bx bxl-google'></i>
+                        <i class='bx bxl-github' ></i>
+                        <i class='bx bxl-linkedin-square' ></i>
+                    </div>
+                        <p>Utiliza tu Correo para registrarte</p>
+                      <form action="" class="Formulario">
+                        <label for="">
+                            <i class='bx bx-envelope' ></i>
+                            <input name="email" type="email" name="" id="" placeholder="Correo">
+                        </label>
+                        <label for="">
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="password" placeholder="Contraseña">
+                        </label>
+                        <input type="submit" value="Iniciar sesión">
+                      </form>
+                    
+                </div>
+            </div>
+       
+    </div>
+    <script src="./anmacion.js"></script>
 </body>
 </html>
