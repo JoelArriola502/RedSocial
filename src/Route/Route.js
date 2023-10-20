@@ -10,4 +10,14 @@ router.get('/Usuarios',(req,res)=>{
         }
     })
 })
+//Api de datos para perfil 
+router.get('/Perfil',(req,res)=>{
+    conexion.query('SELECT idUsuarios,Nombre,Apellido,Correo,Contrasena FROM Usuarios',(error,results)=>{
+        if(error){
+            console.error("All error al obtener el nombre y apellido",error)
+        }else{
+            res.json(results);
+        }
+    })
+})
 module.exports = router;
