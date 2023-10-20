@@ -1,22 +1,55 @@
-const mysql = require('mysql2');
+const mysql=require("mysql2");
+require('dotenv').config();
+const {DB_HOST,DB_USER,DB_PASSWORD,DB_NAME}=process.env;
+    const knex = require('knex')({
+        client: 'mysql2',
+        connection: {
+            host : DB_HOST,
+            port : 3306,
+            user : DB_USER,
+            password : DB_PASSWORD,
+            database : DB_NAME,
+        }
+    });
+function databaseService(){
+    const Publicaciones = 'Publicaciones';
+    const Usuarios= 'Usuarios';
+    const Seguidores='Seguidores';
+    const Etiqueta= 'Etiqueta';
 
-const conexion = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'joelarriola',
-    database: 'RedSocial'
-});
 
+    function mostrarUsuarios(){
+        return knex(Usuarios).select();
+    };
 
-// Conectar a la base de datos
-conexion.connect((error) => {
-    if (error) {
-        console.error('Error al conectar a la base de datos:', error);
-        return
-    } else {
-        console.log('Conexión exitosa a la base de datos');
+    function CrearUsuarios(Nombre, Apellido, Correo,Contrasena){
+        return knex(Usuarios).insert({
+            Nombre: Nombre,
+            Apellido: Apellido,
+            Correo:Correo,
+            Contrasena: Contrasena
+        });
+    };
+    //usuario por id
+    function MostrarUsuariosid(idUsuarios){
+        return knex(Usuarios).where('idUsuarios',idUsuarios).first();
+
     }
-});
 
 
-module.exports = conexion;
+    function obtenerUsuarioPorCredenciales(correo, contrasena) {
+        return knex.select('Nombre', 'Apellido')
+            .from('Usuarios')
+            .where({
+                Correo: correo,
+                Contrasena: contrasena
+            });
+    }
+    
+
+    return {mostrarUsuarios,CrearUsuarios,MostrarUsuariosid,obtenerUsuarioPorCredenciales};
+};
+
+
+
+module.exports = databaseService;

@@ -73,7 +73,7 @@
                         <i class='bx bxl-linkedin-square' ></i>
                     </div>
                         <p>Utiliza tu Correo para registrarte</p>
-                      <form action="" class="Formulario">
+                      <form id="formulario" action="" method="POST" class="Formulario">
                         <label for="">
                             <i class='bx bx-envelope' ></i>
                             <input name="email" type="email" name="" id="Correo" placeholder="Correo">
@@ -82,8 +82,9 @@
                             <i class='bx bx-lock-alt' ></i>
                             <input type="password" placeholder="Contraseña" id="Contra">
                         </label>
-                        <input type="button" value="Iniciar sesión" onclick="Usuarios(), DatosPerfil()">
+                        <button type="submit" onclick="Usuarios(),iniciarSesion()">Iniciar Sesión</button>
                       </form>
+                      <div id="resultado"></div>
                     
                 </div>
             </div>
