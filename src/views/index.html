@@ -22,27 +22,43 @@
                 <input type="text" placeholder="  Buscar Persona">
             </div>
             <div class="iconos">
-                    <a href="index.html"><i class='bx bxs-home'></i></a>
-                    <button><i class='bx bxs-user-plus' ></i></button>
-                    <button><i class='bx bx-group'></i></button>
+                    <button onclick="actualizarPagina()"><i class='bx bxs-home'></i></button>
+                    <button onclick="Seguidores()" id="Seguidores"><i class='bx bxs-user-plus' ></i></button>
+                    <button onclick="DatosPerfil()"><i class='bx bx-group'></i></button>
                   
             </div>
             <div class="perfil1">
                 <button><i class='bx bxs-bell-ring' ></i></button>
-                <div class="Perfil" id="Perfil2"></div>
+                <button><a href="./Login.html">Cerrar Sesión</a></button>
+                
             </div>
             
         </nav>
     </header>
     <div class="todo">
     <div class="Contenido">
-        <div class="Perfil" id="Perfil"></div>
-        <div id="resultadoIngreso"></div>
+
+        <div class="Perfil" id="">
+            <h5 id="Perfil"></h5>
+        </div>
+        <div id="nombreUsuario"></div>
+
 
 
       
     </div>
-    <div class="Publicaciones"></div>
+    <div class="Publicaciones" id="Muestra">
+        <div class="publi">
+            <h2>Crear una publicacion</h2>
+
+            <input type="text" id="Descripcion" placeholder="Que estas Pensando" >
+            <input type="file" name="imagen" id="imagen" class="imagen">
+           <button onclick="CrearPublicacion()">Publicar</button>
+
+                    
+        </div>
+    </div>
+
     <div class="Notificaciones"></div>
 </div>
 </div>

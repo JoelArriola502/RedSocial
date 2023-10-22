@@ -31,23 +31,23 @@
                       <form action="" class="Formulario">
                         <label for="">
                             <i class='bx bx-user' ></i>
-                            <input type="text" placeholder="Nombre">
+                            <input type="text" placeholder="Nombre" id="Nombre">
                         
                         </label>
                         <label for="">
                             <i class='bx bx-user' ></i>
-                            <input type="text" placeholder="Apellido">
+                            <input type="text" placeholder="Apellido" id="Apellido">
                         </label>
 
                         <label for="">
                             <i class='bx bx-envelope' ></i>
-                            <input  type="email" name="email" id="email" type="text" name="" id="" placeholder="Correo">
+                            <input  type="email" name="email" id="email" placeholder="Correo">
                         </label>
                         <label for="">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Contraseña">
+                            <input type="password" placeholder="Contraseña" id="ContrasenaR">
                         </label>
-                        <input type="button" value="Registrarte">
+                        <input type="button" onclick="Gmail()" value="Registrarte"> 
                       </form>
                     
                 </div>
@@ -73,7 +73,7 @@
                         <i class='bx bxl-linkedin-square' ></i>
                     </div>
                         <p>Utiliza tu Correo para registrarte</p>
-                      <form id="formulario" action="" method="POST" class="Formulario">
+                      <form id="formulario"class="Formulario">
                         <label for="">
                             <i class='bx bx-envelope' ></i>
                             <input name="email" type="email" name="" id="Correo" placeholder="Correo">
@@ -82,7 +82,7 @@
                             <i class='bx bx-lock-alt' ></i>
                             <input type="password" placeholder="Contraseña" id="Contra">
                         </label>
-                        <button type="submit" onclick="Usuarios(),iniciarSesion()">Iniciar Sesión</button>
+                        <input type="button" onclick="Usuarios()" value="Iniciar Sesion">
                       </form>
                       <div id="resultado"></div>
                     
