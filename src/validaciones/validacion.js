@@ -92,11 +92,13 @@ function Seguidores(){
             const Nombres=Seguidores[i].Nombre;
             const Apellidos=Seguidores[i].Apellido;
             const idu=Seguidores[i].idUsuarios;
+            const idUsuariosD=Seguidores[i].idUsuariosD;
+            console.log(`idSeguidores verifica ${idUsuariosD}`);
             html=html+`
             <div class="Perfiles">
             
             
-            <p><button onclick="Seguir(${idu})">Seguir</button>${Nombres} ${Apellidos}</p>
+            <p><button onclick="Dejarseguir(${idUsuariosD})">Dejar de seguir</button>${Nombres} ${Apellidos}</p>
         </div>
             
             `
@@ -219,7 +221,6 @@ function CrearPublicacion(){
 function DatosPerfil(){
     const urlParams = new URLSearchParams(window.location.search);
     const idusuario=urlParams.get("idusuario");
-   
     fetch(`http://localhost:3000/Excluye/${idusuario}`)
     .then(res=>res.json())
     .then((DatosPerdfil)=>{
@@ -249,30 +250,77 @@ function DatosPerfil(){
 
 };
 
-//funcion seguir 
+//funcion para dejar de seguir
+
+function Dejarseguir(idUsuariosD){
+    const urlParams = new URLSearchParams(window.location.search);
+    const idUsuariosO=parseInt(urlParams.get("idusuario"));
+    const idUsuariosSegundo=parseInt(idUsuariosD);
+    fetch(`http://localhost:3000/EliminarSiguiendo/${idUsuariosO}/${idUsuariosSegundo}`,{
+       method: 'DELETE',
+       headers:{
+        "Content-Type": "application/json",}
+    })
+    .then(Eliminado=>{
+           
+            if(Eliminado.length===0){
+                if (Eliminado.ok) {
+                    alert("Seguidor eliminado con éxito.");
+                     Seguidores();
+                } else {
+                    alert("No se pudo eliminar el seguidor.");
+                }
+               
+                
+            }else{
+                actualizarPagina();
+            }
+            
+       
+    })
+    .catch((e)=>{
+        console.error('Error',e);
+    })
+    
+
+}
 function Seguir(idUsuarios){
+    const urlParams = new URLSearchParams(window.location.search);
+    const idUsuariosActual=parseInt(urlParams.get("idusuario"));
+    const idUsuariosSegundo=parseInt(idUsuarios);
+    console.log(`primero ${idUsuariosActual} segundo ${idUsuariosSegundo}`)
+    fetch("http://localhost:3000/SeguirV")
+    .then(res=>res.json())
+    .then((SeguirValidar)=>{
+        let Verdader=false;
+       for(let i=0;i<SeguirValidar.length;i++){
+        const Seguidores=SeguirValidar[i].idUsuariosO;
+        const Seguidores2=SeguirValidar[i].idUsuariosD;
+        console.log(`primero ${Seguidores} segundo ${Seguidores2}`)
+        if(Seguidores===idUsuariosActual && Seguidores2===idUsuariosSegundo){
+            Verdader=true;
+        }
+       }
+        
+            if(Verdader){
+                alert("ya esta siguiendo")
+            }else{
+                SeguirInsertar(idUsuarios);
+
+            }
+        
+            })
+
+
+
+}
+//funcion seguir 
+function SeguirInsertar(idUsuarios){
     const Fecha=obtenerFechaYHoraActual();
     const urlParams = new URLSearchParams(window.location.search);
     const idUsuariosO=urlParams.get("idusuario");
     const idUsuariosD=idUsuarios;
-    let validaSeguir=false;
-    fetch("http://localhost:3000/SeguirV")
-    .then(res=>res.json())
-    .then((SeguirValidar)=>{
-        const idss1=idUsuariosO;
-        const idss2=idUsuariosD;
-        console.log(`primero ${id1} segundo ${id2}`)
-        const seguidores=SeguirValidar.map(id1=>id1.idUsuariosO);
-        const seguidores2=SeguirValidar.map(id2=>id2.idUsuariosD);
-        console.log(` primero ${seguidores}  segundo ${seguidores2}`)
-        
-            if(seguidores==idss1 && seguidores2==idss2){
-                alert("ya esta siguiendo")
-                
-
-            
-        }else{
-            
+    
             fetch('http://localhost:3000/seguirUsuarios',{
                 method:"POST",
                 headers:{
@@ -284,20 +332,15 @@ function Seguir(idUsuarios){
           })
           .then((res)=>res.json())
           .then((json)=>{
-             
-  
-              
+            alert("Siguiendo")
+          
                   })
+                
                   .catch((error)=>{
                       console.error("Error al seguir",error);
                   })
-
-            }
-            
-        })
-        .catch(error=>{
-            console.error("Error al validar el seguir ",error)
-        })
+                
+        
 
 
 }

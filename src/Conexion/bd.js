@@ -56,7 +56,7 @@ function databaseService(){
     }
 //mustra seguidores usuarios 
     function MostrarSeguidores(idUsuariosO){
-        return knex.select('u.idUsuarios','u.Nombre','u.Apellido','s.idUsuariosO')
+        return knex.select('u.idUsuarios','u.Nombre','u.Apellido','s.idUsuariosO','s.idUsuariosD')
         .from('Usuarios as u')
         .join('Seguidores as s','u.idUsuarios','s.idUsuariosD')
         .where('s.idUsuariosO',idUsuariosO)
@@ -90,10 +90,16 @@ function ExcluyeUsuario(idUsuarios){
         return knex(Seguidores).select();
         
     }
-
+    function ElimimarSeguidor(idUsuariosO, idUsuariosD) {
+        return knex(Seguidores)
+            .where('idUsuariosO', idUsuariosO)
+            .andWhere('idUsuariosD', idUsuariosD)
+            .del();
+    }
+    
     return {mostrarUsuarios,CrearUsuarios,CrearPublicacion,MostrarUsuariosid,
         obtenerUsuarioPorCredenciales,MostrarSeguidores,obtenerPublicacionConComentarios,
-        ExcluyeUsuario,SeguirUsuarios,SeguidoresValidar};
+        ExcluyeUsuario,SeguirUsuarios,SeguidoresValidar,ElimimarSeguidor};
 };
 
 

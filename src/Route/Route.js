@@ -151,4 +151,23 @@ app.post('/seguirUsuarios',(req,res)=>{
             })
             .catch(e => res.status(500).send(e));
     });
+
+    //funcion Eliminar seguidor o dejar de seguir 
+    app.delete('/EliminarSiguiendo/:idUsuariosO/:idUsuariosD',(req,res)=>{
+        const idUsuariosO=req.params.idUsuariosO;
+        const idUsuariosD=req.params.idUsuariosD;
+        databaseService.ElimimarSeguidor(idUsuariosO,idUsuariosD)
+        .then((response)=>{
+            if (response) {
+                res.json(response);
+            } else {
+                res.status(404).json("Usuario no encontrado");
+            }
+
+        })
+        
+        .catch((e)=>{
+            res.status(500).json({e:'No se puede eliminar',details:e})
+        })
+    })
 };
