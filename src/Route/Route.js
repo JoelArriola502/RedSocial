@@ -13,6 +13,7 @@ module.exports = (app, databaseService)=> {
         console.log(NuevoUsuario);
         databaseService
             .CrearUsuarios(
+                NuevoUsuario.foto,
                 NuevoUsuario.Nombre,
                 NuevoUsuario.Apellido,
                 NuevoUsuario.Correo,
@@ -43,6 +44,7 @@ app.post('/NuevaPublicacion',(req,res)=>{
 app.post('/seguirUsuarios',(req,res)=>{
     const NuevoSeguidor=req.body;
     databaseService.SeguirUsuarios(
+        NuevoSeguidor.Estado,
         NuevoSeguidor.idUsuariosO,
         NuevoSeguidor.idUsuariosD
     )
@@ -117,7 +119,7 @@ app.post('/seguirUsuarios',(req,res)=>{
     
 
     
-    
+    // con comentario
     app.get('/publicacion/:id', (req, res) => {
         const idPublicacion = req.params.id;
     
@@ -133,6 +135,14 @@ app.post('/seguirUsuarios',(req,res)=>{
                 res.status(500).send(error);
             });
     });
+
+    //publicaciones sin comentarios 
+    app.get('/PublicacionesPerfil/:idUsuarios',(req,res)=>{
+        const idUsuarios=req.params.idUsuarios;
+        databaseService.PublicacionesPerfil(idUsuarios)
+        .then(response=>res.json(response))
+        .catch((e)=>res.status(500).json(e))
+    })
     
 
 
@@ -152,6 +162,21 @@ app.post('/seguirUsuarios',(req,res)=>{
             .catch(e => res.status(500).send(e));
     });
 
+    //funcion Seguidores seguidos quitar
+    app.get('/Seguidorq/:idUsuariosO',(req,res)=>{
+        const idUsuariosO=req.params.idUsuariosO;
+        databaseService.SeguidoresSegidos(idUsuariosO)
+        .then(response=>{
+            if(response){
+                res.json(response);
+            }else{
+                res.status(404).json("No esta el usuario")
+            }
+        }).catch((error)=>{
+            res.status(500).json(error)
+        })
+    })
+
     //funcion Eliminar seguidor o dejar de seguir 
     app.delete('/EliminarSiguiendo/:idUsuariosO/:idUsuariosD',(req,res)=>{
         const idUsuariosO=req.params.idUsuariosO;
@@ -160,6 +185,7 @@ app.post('/seguirUsuarios',(req,res)=>{
         .then((response)=>{
             if (response) {
                 res.json(response);
+
             } else {
                 res.status(404).json("Usuario no encontrado");
             }
@@ -170,4 +196,125 @@ app.post('/seguirUsuarios',(req,res)=>{
             res.status(500).json({e:'No se puede eliminar',details:e})
         })
     })
+
+    ///metodo post para comentario propio
+
+    app.post('/Comentario',(req,res)=>{
+        const ComentarioP=req.body;
+        databaseService.ComentarioPropio(
+            ComentarioP.Comentario,
+            ComentarioP.idPublicaciones,
+            ComentarioP.idUsuarios
+        )
+        .then(()=>{
+            res.json({message:"Comentario exitoso"})
+        }).catch(error=>{
+            res.status(500).send(error)
+        })
+    })
+
+    //funcion que mustra los usuarios que te estan siguiendo 
+    app.get('/SeguidoresSigen/:idUsuariosD',(req,res)=>{
+        const idUsuariosD=req.params.idUsuariosD;
+        databaseService.SeguidoresSiguiendote(idUsuariosD)
+        .then(response=>{
+            if(response){
+                res.json(response);
+            }else{
+                res.status(404).json("No esta el usuario")
+            }
+        }).catch((error)=>{
+            res.status(500).json(error)
+        })
+    })
+
+
+    //metodo get mostrar amigos 
+    app.get('/AmigosM/:idUsuariosD', (req, res) => {
+        const idUsuariosD=req.params.idUsuariosD;
+        databaseService.MostrarAmigos(idUsuariosD)
+            .then(response => res.json(response))
+            .catch(e => res.status(500).send(e));
+    });
+
+    //metdodo put actualizar estado 
+    app.put('/actualizarEstado/:idUsuariosO/:idUsuariosD', (req, res) => {
+        const idUsuariosO = req.params.idUsuariosO;
+        const idUsuariosD = req.params.idUsuariosD;
+        const actualizar=req.body;
+    
+        databaseService.actualizarEstado(actualizar.Estado,idUsuariosO,idUsuariosD
+             )
+            .then(() => {
+                res.json({ message: 'Estado actualizado exitosamente' });
+            })
+            .catch((error) => {
+                res.status(500).json({ error: 'No se pudo actualizar El estado', details: error });
+            });
+    });
+
+    //metodo put actualizar foto perfil
+    app.put('/ActualizarPerfil/:idUsuarios',(req,res)=>{
+        const idUsuarios=req.params.idUsuarios;
+        const ActualizarP=req.body;
+        databaseService.ActualizarFoto(idUsuarios,
+            ActualizarP.foto)
+            .then(()=>{
+                res.json({message:"Foto Perfil Actualizada Correctamente"})
+
+            }).catch((error)=>{
+                res.status(500).json({error: "Nos es Posible Actualizar la foto",details:error})
+            })
+
+    })
+
+
+      //metodo get mostrar ultimo id 
+      app.get('/idmax', (req, res) => {
+       
+        databaseService.idPublicacionesInsertar()
+            .then(response => res.json(response))
+            .catch(e => res.status(500).send(e));
+    });
+
+
+    //metodo post Etiquetas
+    app.post('/EtiquetaInsertar',(req,res)=>{
+        const EtiquetarInsert=req.body;
+        databaseService.EtiquetaInsertar(
+            EtiquetarInsert.idPublicaciones,
+            EtiquetarInsert.idUsuariosO,
+            EtiquetarInsert.idUsuariosD
+        )
+        .then(()=>{
+            res.json({message: "Etiqueta insertarda Correctamente"});
+        }).catch((e)=>{
+            res.status(500).json(e)
+        })
+    })
+
+
+    app.get('/UsuariosRed/:idUsuarios',(req,res)=>{
+        const idUsuarios=req.params.idUsuarios;
+        databaseService.UsuariosRed(idUsuarios)
+        .then(response=>res.json(response))
+        .catch((e)=>res.status(500).json(e))
+    })
+
+    app.get('/PublicacionesTodas/:idUsuariosO',(req,res)=>{
+        const idUsuariosO=req.params.idUsuariosO;
+        databaseService.PublicacionesEtiquetadas(idUsuariosO)
+        .then((response)=>{
+           const DejarLimpio=response.map((row)=>({
+            ...row,
+                NombreUsuarioD: row.NombreUsuarioD || '',
+                ApellidoUsuarioD: row.ApellidoUsuarioD || '',
+           }));
+           res.json(DejarLimpio);
+
+        }).catch((error)=>{
+            res.status(500).json({error: "Nos es Posible Actualizar la foto",details:error})
+        })
+    })
+
 };

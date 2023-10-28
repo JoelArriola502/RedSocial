@@ -1,21 +1,72 @@
 *{
   margin: 0%;
   padding: 0%;
+  color: #fff;
   font-family: 'Montserrat', sans-serif;
+  background-color: #18191A;
 }
 body{
   display: flex;
   margin: 0%;
   padding: 0%;
+  background-color: #18191A;
   align-items: center;
   justify-content: center;
+  font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #e4e6eb;
+  overflow: hidden;
+
  
+}
+
+
+/* Mi div flotante */
+
+.miDiv-etiquetar{
+  width: auto;
+  border-radius: 5px;
+  max-height: 100%;
+  position: fixed;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3A3B3C;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+}
+.miDiv-etiquetar #Cerrar{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  cursor: pointer;
+  color: #fff;
+}
+.miDiv-etiquetar #Cerrar:hover{
+ background-color: #0c0c0c;
+}
+
+
+
+
+.logo{
+  background-color: transparent;
 }
 .logo i{
   font-size: 40px;
   margin: 10px;
+  background-color: transparent;
+
 
   
+}
+.buscar{
+  background-color: transparent;
 }
 .buscar input{
   border-radius: 20px;
@@ -28,37 +79,96 @@ body{
   box-shadow: 0 2px 5px rgba(29, 27, 27, 0.858);
 }
 .nav{
-  width: auto;
+  width: 100%;
   display: flex;
-  padding: 0.5%;
-  margin: 0.5%;
-
-  height: 55px;
-  background-color: rgba(0, 87, 255, 0.14);
+  height: 70px;
+  padding: 10px;
+  padding-right: 10px;
+  background-color: #242526;
   box-shadow: 0 2px 5px rgba(29, 27, 27, 0.858);
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   
 }
 .iconos{
   display: flex;
   width: auto;
-  gap: 200px;
+  gap: 70px;
   margin: 10px;
   margin-left: 100px;
+  background-color: transparent;
   
 }
 .iconos i{
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #fff;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 5px rgba(29, 27, 27, 0.858);
 
 }
+.iconos i button{
+  display: flex;
+}
+
+/* Tood lo de Perfil  */
+.DatosPerfil{
+  width: 100%;
+  position: relative;
+  height: 50px;
+  margin-top: 6px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  right: 12px;
+
+}
+.DatosPerfil button{
+  display: flex;
+  border: none;
+  width: 370px;
+  padding: 2%;
+  margin: 0%;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0.5em;
+
+}
+.DatosPerfil button:hover{
+ background-color: #3A3B3C;
+  color: #fff;
+}
+.DatosPerfil .FotoPerfil{
+  background: transparent;
+}
+.DatosPerfil .FotoPerfil img{
+  position: relative;
+  border-radius: 50%;
+  background: transparent;
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  top: 5px;
+}
+.DatosPerfil .NombrePerfil{
+  background: transparent;
+}
+.DatosPerfil .NombrePerfil h4{
+  position: relative;
+  background: transparent;
+  font-size: 10px;
+  text-align: center;
+  justify-content: center;
+  top: 19px;
+  left: 4px;
+
+}
+
 .iconos i:hover{
-  background-color:rgba(43, 58, 88, 0.279);
+  background-color:#3A3B3C;
   color: #fff;
 }
 .buscar{
@@ -74,59 +184,88 @@ body{
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 500;
   padding: 1%;
   text-align: center;
+  background: transparent;
+  overflow: hidden;
 
 }
-
+.perfil{
+  padding: 0%;
+  margin: 0%;
+  background-color: transparent;
+}
 .Contenido{
   display: flex;
   width: 370px;
   padding-left: 0.5%;
   margin-left: 0.5%;
-  background-color: rgba(0, 87, 255, 0.15);
+  margin-top: 25px;
+  background:transparent;
+  text-align: center;
+  justify-content: center;
+  place-items: top;
+  place-content: center;
  
 }
 .Publicaciones{
   display: flex;
   flex-direction: column;
-  width: 510px;
-  height: 400px;
-  background-color: rgba(0, 87, 255, 0.15);
-  box-shadow: 0px 0px 10px black;
+  width: auto;
+  height: 600px;
+  max-height: 100%;
+  overflow-y:auto ;
+  background:transparent;
+  
+
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #424242;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #686868;
 }
 .Notificaciones{
   display: flex;
   width: 425px;
   height: 400px;
-  background-color: rgba(0, 87, 255, 0.15);
+  background-color: transparent;
   
 }
 .todo{
   display: flex;
+  background: transparent;
+  height: 620px;
+  width: auto;
+  
 }
 
 .perfil1{
   display: flex;
   padding: 10px;
-  margin-left: 100px;
+  background: transparent;
 
 }
 .perfil1 a{
   text-decoration: none;
-  border-radius: 30px;
-  background-color: rgba(0, 85, 255, 0.279);
-  width: 250px;
+  border-radius: 5px;
+  background: transparent;
+  width: 100%;
   height: 50px;
-  padding: 5px;
-  margin-left: 150px;
-  color: black;
+  padding: 10px;
+  margin-left: 5px;
+  color: rgb(255, 255, 255);
   box-shadow: 0px 2px 5px black;
 
 }
 .perfil1 a:hover{
-  background-color: rgba(0, 87, 255, 0.52);
+  background-color: #3A3B3C;
   color: #fff;
 
 }
@@ -152,31 +291,52 @@ body{
 
 
 .Perfiles{
-  width: auto;
-  border-radius: 30px;
+  width: 510px;
+  height: 80px;
   display: flex;
-  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
   text-align: center;
-  justify-items: center;
-  box-shadow: 0px 2px 5px black;
-}
-.Perfiles p{
-  color: black;
-  margin: 10px;
+  justify-content: center;
+  
   
 }
-.Perfiles button{
-  width: auto;
+.Perfiles .Foto img{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  left: 5px;
+  top: 10px;
+}
+.Perfiles .Datosp{
+  display: flex;
+  width: 150px;
+  padding: 0px;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center;
+
+}
+.Perfiles .Datosp p{
+  display: flex;
+ color: black;
+ padding: 0;
+ font-size: 10px;
+ padding-right: 50px;
+  
+}
+.Perfiles  button{
+    width: 80px;
     height: 20px;
     background-color: #9191db;
     text-align: center;
     justify-items: center;
     border-radius: 20px;
     border: none;
-    margin-left: 5px;
     padding: 0 5px;
     cursor: pointer;
-    margin-top: 10px;
+    top: 0px;
+    right: 50px;
     box-shadow: 0 2px 5px rgba(0,0,0,.1);
   
 
@@ -185,16 +345,173 @@ body{
   background-color: #8a8adba1;
   color: #fff;
 }
+
+  /*los que estas siguiendo usuario */
+  .Siguiendo{
+    display: flex;
+    width: 190px;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+    place-items: center;
+  }
+  .Siguiendo .FotoPerfil img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    
+
+  }
+  .Siguiendo .DatosPerfiles{
+    position: relative;
+    display: flex;
+    width: 150px;
+    padding: 0px;
+    margin: 10px;
+    flex-direction: column;
+    text-align: center;
+
+  }
+  .Siguiendo .DatosPerfiles p{
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+    right: 10px;
+    margin-bottom: 10px;
+  }
+  .Siguiendo .DatosPerfiles button{
+    background-color: #0000f5;
+    border-radius: 0.5em;
+    border: none;
+    margin-top: 10px;
+    width: 120px;
+    height: 25px;
+  }
+  .Siguiendo .DatosPerfiles button:hover{
+    background-color: #5228da96;
+    color: #fff;
+  }
+
+/* Aqui esta lo del perfil */
+.miPerfil{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 1%;
+  
+}
+.miPerfil .miPerfilFoto{
+  width: 100%;
+  display: flex;
+  background-color: #242526;
+  
+ 
+}
+.miPerfil .miPerfilFoto .miPerfilFoto_Nombre{
+  display: flex;
+ 
+
+  
+}
+.miPerfilFoto{
+  
+
+  
+}
+.FotoPerfil img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100%;
+  
+  
+}
+.Actualizar{
+  background-color: blue;
+}
+.miPerfil .miPerfilFoto .miPerfilFoto_Nombre{
+  background-color:#242526 ;
+  border-radius: 50%;
+ 
+}
+.miPerfil .miPerfilFoto .miPerfilFoto_Nombre button img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color:#242526;
+  border-radius: 50%;
+  border: none;
+  
+ 
+}
+.miPerfil .miPerfilFoto .miPerfilFoto_Nombre button{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.miPerfil .miPerfilFoto .miPerfilFoto_Nombre button:hover{
+  background-color:#222323;
+}
+.miPerfil .miPerfilNombre{
+  background-color: #0c0c0c;
+  justify-content: center;
+  place-items: center;
+  margin-top: 130px;
+  margin-right: 120px;
+  
+}
+.miPerfil .miPerfilNombre h2{
+  height: 100%;
+  color: #fff;
+  background-color: #242526;
+  
+ 
+}
+.miPerfil .miPerfilFoto input[type="file"] {
+  display: none;
+  background-color: #f2f2f2; /* Cambia el color de fondo */
+  color: #333; /* Cambia el color del texto */
+  border: 2px solid #ddd; /* Cambia el borde */
+  padding: 5px; /* Cambia el relleno (padding) */
+  border-radius: 5px; /* Añade bordes redondeados */
+  width: 200px; /* Ajusta el ancho según tus necesidades */
+}
+.miPerfil .miPerfilFoto label{
+  background-color:transparent;
+  cursor: pointer;
+}
+
+
 .publi{
   display: flex;
   flex-direction: column;
   text-align: center;
   place-items: center;
+  margin-top: 10px;
+ background-color:#242526;
+ border-radius: 0.5em;
+ padding: 15px;
+ 
+ 
 }
 .publi h2{
-  color: black;
+  padding-bottom: 15px;
+  color: rgb(255, 255, 255);
+  background:transparent;
 
 }
+.publi input[type="file"]{
+  display: none;
+}
+.publi label i{
+  font-size:  60px;
+  background: transparent;
+}
+.publi label{
+  background: transparent;
+  cursor: pointer;
+}
+
 .publi input{
   width: 250px;
   height: 150px;
@@ -213,20 +530,226 @@ body{
   background-color: rgba(0, 85, 255, 0.279);
 }
 .publi button{
-  border-radius: 30px;
+  border-radius: 5px;
   border: none;
   width: 150px;
   height: 30px;
-  background-color: rgba(0, 85, 255, 0.279);
+  background: transparent;
   padding: 5px;
-  color: black;
+  color: rgb(255, 255, 255);
   box-shadow: 0px 2px 5px black;
+  cursor: pointer;
 
 }
 .publi button:hover{
-  background-color: rgba(0, 87, 255, 0.52);
+  background-color: #3A3B3C;
   color: #fff;
 }
+.PerfilUsuario{
+  display: flex;
+} 
+
+/*Esta lo que contiene datos del que realizo la publicacion 
+imagen y descripcion de publicación */
+.publicar{
+  display: flex;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  margin-top: 25px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #242526;
+
+}
+.PubliPer_foto img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.publicar .Comentarios{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 10px;
+  overflow: auto;
+  max-height: 100%;
+  background-color: #242526;
+ 
+}
+.publicar .DatosPubli {
+  display: flex;
+  background-color: #242526;
+  right: 50px;
+  height: 100%;
+  top: 15px;
+
+}
+/*Esta lo que contiene imagen y descripcion de publicación */
+.publicar .Publica_Datos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  place-items: center;
+ background-color: #242526;
+  height: 100%;
+
+}
+
+.ComentarioP{
+ padding-top: 10px;
+ margin: 10px;
+ background: transparent;
+
+}
+.ComentarioP input{
+  width: 250px;
+  height: 250px;
+ 
+
+}
+.ComentariosM{
+  position: relative;
+  display: flex;
+  height: 210px;
+  flex-direction: column;
+  background: transparent;
+
+ 
+}
+
+.Comentarios_Nombre{
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(13, 12, 12);
+  
+}
+.Comentarios_Nombre h5{
+ background-color:transparent;
+}
+.Comentarios_Nombre p{
+  background-color: transparent;
+}
+.ComentariosDatos{
+  display: flex;
+ 
+}
+.Comentarios_foto{
+  background-color: #242526;
+
+}
+.ComentariosM .ComentariosDatos .Comentarios_foto img{
+  width: 30px;
+  border-radius: 50%;
+}
+.publicar .DatosPubli .DatosPubli_Nombre h5 {
+  background-color: #242526;
+  
+}
+.publicar .DatosPubli .DatosPubli_Nombre p{
+  background-color: #242526;
+}
+.DatosPubli_Nombre{
+  background-color: #242526;
+}
+.publicar .DatosPubli .PubliPer_foto{
+  background-color:  #242526;
+}
+.publicar .DatosPubli .PubliPer_foto img{
+  width: 50px;
+
+  background-color: #242526;
+}
+
+.publicar .Publica_Datos img{
+  background-color: #242526;
+  width: 250PX;
+  position: relative;
+ 
+}
+.Publica_Datos2 img{
+  width: 250px;
+  height: auto;
+}
+.Publica_Datos .Publica_Datos2{
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color:transparent ;
+
+  text-align: center;
+  justify-content: center;
+}
+/*Esta lo que contiene Todo lo que lleva la  publicación */
+.PublicacionesPerfil{
+ 
+  text-align: center;
+  place-items: center;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow: none;
+  
+}
+.Publica_Datos2{
+  display: flex;
+  flex-direction: column;
+  background-color:#2677c9 ;
+
+}
+.Publica_Datos h4{
+  display: flex;
+  flex-direction: column;
+  background-color: #242526;
+}
+.Publica_Datos button{
+ height: 30px;
+ border-radius: 5px;
+ border: none;
+  margin-top: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  
+}
+.Publica_Datos button:hover{
+  background-color: #3A3B3C;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -241,23 +764,208 @@ body{
   .iconos{
     display: flex;
     width: auto;
-    gap: 60px;
+    gap: 10px;
     margin: 10px;
     
   }
-.Perfiles button{
-  width: auto;
-    height: 20px;
-    background-color: #9191db;
+  .DatosPerfil{
+    height: 50px;
+    display: flex;
     text-align: center;
-    border-radius: 20px;
+    justify-content: center;
+
+  }
+  .DatosPerfil button{
+    display: flex;
+    width: 220px;
+    border-radius: 0.5em;
     border: none;
-    margin-left: 5px;
-    padding: 0 5px;
+    background-color: transparent;
     cursor: pointer;
-    margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+
+  }
+  .DatosPerfil button:hover{
+   background-color: #0000f52f;
+    color: #fff;
+  }
+  .DatosPerfil .FotoPerfil img{
+    position: relative;
+    width: 40px;
+    top: 5px;
+  }
+  .DatosPerfil .NombrePerfil h4{
+    position: relative;
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+    top: 15px;
+    right: 18px;
+
+  }
+  /*Usuarios Reguistrados */
+  .Perfiles{
+    width: 205px;
+    height: 80px;
+    display: flex;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    justify-items: center;
+
+    
+  }
+  .Perfiles .Foto img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 5px;
+    top: 10px;
+  }
+  .Perfiles .Datosp{
+    display: flex;
+    width: 150px;
+    padding: 0px;
+    margin: 10px;
+    flex-direction: column;
+    text-align: center;
+
+  }
+  .Perfiles .Datosp p{
+   color:  #242526;
+   padding: 0;
+   font-size: 10px;
+   padding-right: 50px;
+    
+  }
+  .Perfiles  button{
+      width: 100px;
+      height: 25px;
+      background-color: #0000f5;
+      text-align: center;
+      justify-items: center;
+      border-radius: 0.5em;
+      border: none;
+      padding: 0 5px;
+      cursor: pointer;
+      top: 0px;
+      right: 50px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    
+  
+  }
+  .Perfiles button:hover{
+    background-color: #5228da96;
+    color: #fff;
+  }
+
+  /* Perfil de usuario  */
+
+  .miPerfil{
+    display: flex;
+    flex-direction: column;
+  }
+  .miPerfil .miPerfilFoto {
+    display: flex;
+  }
+
+  .miPerfil .miPerfilNombre h2{
+    position: relative;
+    top: 160px;
+  }
+  .miPerfil .miPerfilFoto input[type="file"] {
+    display: none;
+ 
+  }
+  .miPerfil .miPerfilFoto label{
+    background-color:transparent;
+    cursor: pointer;
+  }
+  .miPerfil .PublicacionesPerfil{
+    border: solid thin red;
+    text-align: center;
+    justify-content: center;
+
+  }
+
+  .publicar .PubliPer_foto img{
+    width: 20px;
+
+  }
+  .publicar .DatosPubli{
+    display: flex;
+   
+  }
+  .publicar .DatosPubli_Nombre{
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .publicar .Publica_Datos{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 5px;
+  }
+  .publicar .Publica_Datos button{
+    background-color: #00000262;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+  .publicar .Publica_Datos button:hover{
+    background-color: #333;
+    color: #fff;
+  }
+
+.publicar .Publica_Datos img{
+  width: 300px;
+  margin: 10px;
 }
+  /* Siguiendo */
+
+  .Siguiendo{
+    display: flex;
+    width: 190px;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+    place-items: center;
+  }
+  .Siguiendo .FotoPerfil img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    
+
+  }
+  .Siguiendo .DatosPerfiles{
+    position: relative;
+    display: flex;
+    width: 150px;
+    padding: 0px;
+    margin: 10px;
+    flex-direction: column;
+    text-align: center;
+
+  }
+  .Siguiendo .DatosPerfiles p{
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+    right: 10px;
+    margin-bottom: 10px;
+  }
+  .Siguiendo .DatosPerfiles button{
+    background-color: #0000f5;
+    border-radius: 0.5em;
+    border: none;
+    margin-top: 10px;
+    width: 120px;
+    height: 25px;
+  }
+  .Siguiendo .DatosPerfiles button:hover{
+    background-color: #5228da96;
+    color: #fff;
+  }
   .logo i{
     font-size: 30px;
     margin: 10px;
@@ -277,20 +985,19 @@ body{
   
   .perfil1{
     display: flex;
-    padding: 10px;
+    padding: 0px;
     margin-left: 0px;
-
-
   
   }
   .perfil1 a{
+    font-size: 10;
     text-decoration: none;
     border-radius: 30px;
     background-color: rgba(0, 85, 255, 0.279);
     width: 250px;
     height: 50px;
     padding: 5px;
-    margin-left: 60px;
+    margin-left: 3px;
     color: black;
     box-shadow: 0px 2px 5px black;
 
@@ -300,24 +1007,27 @@ body{
     color: #fff;
 
   }
+  .PerfilUsuario{
+    display: flex;
+  }
   .Contenido{
     display: flex;
     width: 230px;
-    height: 400px;
+    height: auto;
     padding-left: 0.5%;
     text-align: center;
     margin-left: 0.5%;
-    background-color: rgba(0, 87, 255, 0.15);
+    background-color:  #242526;
     
   }
   .Publicaciones{
     display: flex;
     flex-direction: column;
-    width: 220px;
-    height: 400px;
+    width: 400px;
+    height: auto;
     text-align: center;
     place-items: center;
-    background-color: rgba(0, 87, 255, 0.15);
+    background-color:  #242526;
     
   }
   .publi h2{
@@ -361,7 +1071,7 @@ body{
   .iconos{
     display: flex;
     width: auto;
-    gap: 10px;
+    gap: 0px;
     margin: 10px;
     
   }

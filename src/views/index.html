@@ -8,60 +8,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/stylo.css">
-    <link rel="icon" href="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-social-media-by-vexels.png">
-    <title>Aplicacion</title>
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.O68IDjhD6eFnhEJ4P4DktQHaHa?pid=ImgDet&rs=1">
+    <title>RedSocial</title>
 </head>
 <body>
     <div class="contenedor">
-    <header>
-        <nav class="nav">
-            <div class="logo">
-                <i class='bx bxl-facebook-circle'></i>
-            </div>
-            <div class="buscar">
-                <input type="text" placeholder="  Buscar Persona">
-            </div>
-            <div class="iconos">
-                    <button onclick="actualizarPagina()"><i class='bx bxs-home'></i></button>
-                    <button onclick="Seguidores()" id="Seguidores"><i class='bx bxs-user-plus' ></i>Siguiendo</button>
-                    <button onclick="DatosPerfil()"><i class='bx bx-group'></i>Usuarios</button>
-                  
-            </div>
-            <div class="perfil1">
-                <button><i class='bx bxs-bell-ring' ></i></button>
-                <button><a href="./Login.html">Cerrar Sesión</a></button>
-                
-            </div>
-            
-        </nav>
-    </header>
-    <div class="todo">
-    <div class="Contenido">
-
-        <div class="Perfil" id="">
-            <h5 id="Perfil"></h5>
-        </div>
-        <div id="nombreUsuario"></div>
-
-
-
-      
-    </div>
-    <div class="Publicaciones" id="Muestra">
-        <div class="publi">
-            <h2>Crear una publicacion</h2>
-
-            <input type="text" id="Descripcion" placeholder="Que estas Pensando" >
-            <input type="file" name="imagen" id="imagen" class="imagen">
-           <button onclick="CrearPublicacion()">Publicar</button>
-
+        <header>
+            <nav class="nav">
+                <div class="logo">
+                    <i class='bx bxs-balloon'></i>
+                </div>
+                <div class="buscar">
+                    <input type="text" placeholder="  Buscar Persona">
+                </div>
+                <div class="iconos">
+                        <button  onclick="actualizarPagina()"><i class='bx bxs-home'></i>Inicio</button>
+                        <button onclick="Amigos()"><i class='bx bxs-group'></i>Amigos</button>
+                        <button onclick="Seguidores()" id="Seguidores"><i class='bx bxs-user-plus' ></i>Seguidores</button>
+                        <button onclick="Siguiendo()" id="siguiendo"><i class='bx bxs-user-plus' ></i>Siguiendo</button>
+                        <button onclick="DatosPerfil()"><i class='bx bx-group'></i>Usuarios</button>
                     
-        </div>
+                </div>
+                <div class="perfil1">
+                    <button><i class='bx bxs-bell-ring' ></i></button>
+                    <button ><a href="./Login.html">Cerrar Sesión</a></button>
+                    
+                </div>
+                
+            </nav>
+        </header>
+        <div class="todo">
+            <div class="miDiv-etiquetar" id="Div-Flotante" style="display: none;">
+                <button  id="Cerrar"><i class='bx bx-x'></i></button>
+                <div class="amigos" id="amigos"></div>
+            </div>
+            <div class="Contenido">
+                <div class="Perfil" id="Perfil">
+                </div>
+                <div id="nombreUsuario"></div>
+            
+            </div>
+            <div class="Publicaciones" id="Muestra">
+                <div class="publi">
+                    <h2>Crear una publicación</h2>
+                    <input type="text" id="Descripcion" placeholder="Que estas Pensando" >
+                    
+                    <button onclick="SubirImagen()" id="Imagen" ><i class='bx bxs-image'></i></button>
+                    <button onclick="AmigosEtiquetar()" id="Etiquetar">Etiquetar</button> 
+                <button id="publicar" onclick="PublicacionEtiquetada()">Publicar</button>
+                        
+                </div>
+                <div class="MostraPublicaciones" id="Publicaciones-inicio"></div>
+            </div> 
+    
     </div>
-
-    <div class="Notificaciones"></div>
 </div>
-</div>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 <script src="../validaciones/validacion.js"></script>
+<script src="/src/views/EtiquetarDiv.js"></script>
 </body>
 </html>
+
+
